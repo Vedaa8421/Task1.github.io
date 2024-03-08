@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Download Form</title>
+    <style>
+        body {
+        background-image: url('img3.jpg'); 
+        background-size: cover;
+        margin: 0;
+        }
+        form {
+            background-color: #081e2c;
+            padding: 20px 10px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px #45a049;
+            max-width: 400px;
+            width: 400px;
+            height: 470px;
+            box-sizing: border-box;
+            max-width: 400px;
+            margin: auto; /* Reset the margin-right to ensure it's centered */
+            margin-top: 37px; 
+            text-align: center;
+            }
+
+    h2{
+    background: linear-gradient(to right,#081e2c,  #45a049,#081e2c); /* Gradient from pink to light pink */
+    display: inline-block; /* Ensure the gradient spans the entire width */
+    padding: 10px; /* Adjust padding as needed */
+    border-radius: 8px; /* Add rounded corners for a smoother look */
+    color: white; /* Text color */
+}
+
+    input {
+    width: 80%;
+    padding: 12px 5px;
+    border:none;
+    background-color:#081e2c;
+    border-bottom: 1px solid #45a049;
+     color: #fff;
+}
+input:focus
+{
+    outline: none;
+}
+
+
+.btn  {
+    background-color: #4caf50;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 23%;
+    display: block;
+    margin: 0 auto;
+    margin-top: 45px;
+     box-shadow: 0 0 7px #081e2c;
+}
+
+.btn:hover {
+    background-color: #081e2c;
+
+    transition: 0.7s;
+}
+
+        .hidden {
+            display: none;
+        }
+       .button{
+           
+             background-color: #4caf50;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 23%;
+            display: block; /* Make the button a block element */
+            margin: 0 auto;
+            margin-top: 20px;
+           
+        }
+ .button:hover {
+    background-color: #4fcf54;
+
+    transition: 0.7s;
+}
+         
+    </style>
+</head>
+<body>
+
+<button class="btn" button onclick="showDownloadForm()">Download</button>
+
+<div id="downloadFormContainer" style="display: none;">
+<div class="downloadFormContainer">
+<form id="downloadForm">
+
+<h2> Contact Information</h2>
+<input type="text" placeholder="First Name" required>
+
+<input type="text"  placeholder="Last Name" required>
+
+<input type="text" placeholder="City" required>
+
+<input type="text" placeholder="Country" required>
+
+<input type="text" placeholder="Contact Number" pattern="[0-9]{10}" required>
+
+<input type="text" placeholder="Company Name" required>
+
+    <button class="button" button type="button" onclick="submitForm()">Submit</button>
+
+    <div id="downloadLink"style="display: block;color: #ffffff;margin-top: 15px;"></div>
+
+
+</div>
+</form>
+
+
+
+
+
+<script>
+    function showDownloadForm() {
+        var downloadFormContainer = document.getElementById("downloadFormContainer");
+        downloadFormContainer.style.display = "block";
+    }
+
+    function submitForm() {
+        var form = document.getElementById("downloadForm");
+        if (form.checkValidity()) {
+            // Simulate server response (replace with actual server-side logic)
+            var downloadLink = "https://example.com/download";
+            
+            document.getElementById("downloadLink").innerHTML = 'Download Link: <a href="' + downloadLink + '" target="_blank">' + downloadLink + '</a>';
+            document.getElementById("downloadLink").style.display = 'block';
+        } else {
+            form.reportValidity();
+        }
+    }
+</script>
+
+</body>
+</html>
